@@ -1,12 +1,14 @@
 package view;
 
 import javafx.scene.Group;
+import javafx.scene.Scene;
 import javafx.scene.control.*;
 import javafx.scene.paint.Color;
 import javafx.scene.text.Font;
 import javafx.scene.text.Text;
 
 public class ViewInscription {
+    private final ViewInscription formulaireInscription;
     private Group root;
     private Text textTitre;
     private Label labelNom;
@@ -26,10 +28,11 @@ public class ViewInscription {
     private Label labelMdp;
     private PasswordField passwordFieldMdp;
     private Button btnValider;
-    private ViewInscription formulaireInscription;
+    private Scene scene;
 
-    ViewInscription(Group root){
-       this.root = root;
+    ViewInscription(ViewInscription formulaireInscription, Group root){
+        this.formulaireInscription = formulaireInscription;
+        this.root = root;
         textTitre = initTitre(650, 100, "Inscrivez-vous", "Indie Flower", 100);
         labelNom = initLabel(350, 150, "Nom");
         labelPrenom = initLabel(350, 250, "Prénom");
@@ -84,6 +87,7 @@ public class ViewInscription {
         b.setText(textButton);
         b.setPrefSize(tailleBoutonLargeur, tailleBoutonHauteur);
         return b;
+
     }
 
     void setVueInscription() {
